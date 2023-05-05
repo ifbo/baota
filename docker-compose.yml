@@ -39,10 +39,10 @@ services:
     tty: true
     privileged: true
     volumes:
-      - ./app_backup/export:/app_backup/export
-      - www:/app_backup/data/www
-      - usr:/app_backup/data/usr
-      - etc:/app_backup/data/etc
+       - ./app_backup/export:/app_backup/export
+       - www:/app_backup/data/www
+       - usr:/app_backup/data/usr
+       - etc:/app_backup/data/etc
 volumes:
   www:
     driver: ${VOLUMES_DRIVER}
