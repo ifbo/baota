@@ -1,17 +1,21 @@
-version: '2'
+version: '3'
+
 services:
-  ql_web:
-    image: whyour/qinglong:latest
-    container_name: ql
-    volumes:
-      - ./data/config:/ql/config
-      - ./data/log:/ql/log
-      - ./data/db:/ql/db
-      - ./data/scripts:/ql/scripts
-      - ./data/repo:/ql/repo
+  ql:
+    image: whyour/qinglong:latest  
+    restart: always
     ports:
-      - "5700:5700"
+      - "5700:5700"  
+    volumes:        
+      - ql-web:/ql/config       
+      - ql-web:/ql/log        
+      - ql-web:/ql/db             
+      - ql-web:/ql/scripts
+      - ql-web:/ql/repo   
+    container_name: ql_new    
     environment:
       - ENABLE_HANGUP=true
       - ENABLE_WEB_PANEL=true
-    restart: always
+      
+volumes:
+  ql-web:
